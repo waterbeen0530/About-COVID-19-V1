@@ -1,23 +1,28 @@
 import styled from "@emotion/styled";
+import Background from "./Background";
 
 export default function () {
   return (
-    <Container>
-      <Title>
-        <h1>
-          ABOUT
-          <br />
-          COVID-19
-        </h1>
-        <p>간편하게 코로나19 확진자 통계 정보를 확인하세요!</p>
-      </Title>
-      <img src="/img/MainPage/mainIcon.png" alt="" />
-    </Container>
+    <>
+      <Background />
+      <Container>
+        <Title>
+          <h1>
+            ABOUT
+            <br />
+            COVID-19
+          </h1>
+          <p>간편하게 코로나19 확진자 통계 정보를 확인하세요!</p>
+        </Title>
+        <img src="/img/MainPage/mainIcon.png" alt="" />
+      </Container>
+    </>
   );
 }
 
 const Container = styled.div`
-  width: 100vw;
+  z-index: 10;
+  width: 100%;
   height: 100vh;
   gap: 100px;
   display: flex;
