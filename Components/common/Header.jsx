@@ -16,6 +16,7 @@ export default function () {
 }
 
 const Conta = styled.div`
+  z-index: 100;
   position: fixed;
   width: 100%;
   height: auto;
