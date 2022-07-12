@@ -6,9 +6,15 @@ export default function () {
       <Content>
         <img src="/img/Footer/logo.png" alt="" />
         <Lists>
-          <img src="/img/Footer/facebook.png" alt="" />
-          <img src="/img/Footer/instagram.png" alt="" />
-          <img src="/img/Footer/github.png" alt="" />
+          <a href="https://www.facebook.com/profile.php?id=100064560693847">
+            <img src="/img/Footer/facebook.png" alt="" />
+          </a>
+          <a href="https://www.instagram.com/subin_253/">
+            <img src="/img/Footer/instagram.png" alt="" />
+          </a>
+          <a href="https://github.com/waterbeen0530">
+            <img src="/img/Footer/github.png" alt="" />
+          </a>
         </Lists>
       </Content>
     </Container>
@@ -42,7 +48,9 @@ const Lists = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  img {
-    width: 17%;
+  a {
+    img {
+      width: 50%;
+    }
   }
 `;
