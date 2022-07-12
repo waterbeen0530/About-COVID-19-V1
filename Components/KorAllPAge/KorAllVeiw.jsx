@@ -1,11 +1,12 @@
 import Header from "../common/Header";
-import KorAllItem from "./KorAllItem";
+import KorAllJs from "./KorAllJs";
+import KorAllArea from "./KorAllArea";
 
 export default function () {
   return (
     <>
       <Header />
-      <KorAllItem />
+      <KorAllJs />
     </>
   );
 }

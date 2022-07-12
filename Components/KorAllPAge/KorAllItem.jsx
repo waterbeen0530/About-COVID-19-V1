@@ -1,42 +1,27 @@
 import styled from "@emotion/styled";
-import { useState, useEffect } from "react";
-import axios from "axios";
-import { FiUsers } from "react-icons/fi";
+import KorAllArea from "./KorAllArea";
+import { useEffect } from "react";
 
-export default function () {
-  const [covidData, setCovidData] = useState([]);
-  const getData = () => {
-    axios
-      .request({
-        url: "https://api.corona-19.kr/korea/beta/?serviceKey=LnJWSjMIRqfEzUNTiQ3VuCo749kGlehKY",
-        method: "GET",
-      })
-      .then(({ data }) => {
-        const arr = Object.keys(data)
-          .filter((key) => key !== "API")
-          .map((key) => {
-            return data[key];
-          });
-        console.log(arr);
-        setCovidData(arr);
-      });
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
-
+export default function ({ covidData }) {
   return (
     <Container>
       <Content>
         <ItemList>
-          <div>
+          <div className="covidMan">
+            <span>국내 확진자</span>
             <h2>{covidData.length && covidData[0].totalCnt}</h2>
-            <p id="">+{covidData.length && covidData[0].incDec}</p>
-            <p>국내 확진자</p>
+            <p>+{covidData.length && covidData[0].incDec}</p>
           </div>
-          <FiUsers />
+          <div className="freshMan">
+            <span>국내 사망자</span>
+            <h2>{covidData.length && covidData[0].isolCnt}</h2>
+          </div>
+          <div className="deathMan">
+            <span>국내 사망자</span>
+            <h2>{covidData.length && covidData[0].deathCnt}</h2>
+          </div>
         </ItemList>
+        <KorAllArea />
       </Content>
     </Container>
   );
@@ -44,31 +29,71 @@ export default function () {
 
 const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 200vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: #f3f5ff;
 `;
 
 const Content = styled.div`
-  &:first-child {
-    h2 {
-      color: #ffb800;
-    }
-    & > div > p:first-child {
-      width: auto;
-      height: 10px;
-      color: #fff;
-      background: #ffb800;
-    }
-  }
+  width: 1000px;
 `;
 
 const ItemList = styled.div`
-  width: 500px;
-  height: 300px;
-  border-radius: 20px;
-  background: #fff;
+  width: 100%;
+  gap: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 25px;
+  div {
+    width: 330px;
+    height: 110px;
+    padding: 15px 0 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 20px;
+  }
 
+  span {
+    font-size: 16px;
+    font-weight: 600;
+    color: #9d9d9d;
+  }
   h2 {
     margin: 0;
+  }
+  p {
+    width: 80px;
+    margin: 5px 0 0;
+    padding: 0 0 3px 0;
+    border-radius: 25px;
+    text-align: center;
+  }
+  .covidMan {
+    h2 {
+      color: #ff6584;
+    }
+    p {
+      color: #ff6584;
+      background: #ffdbe3;
+    }
+  }
+
+  .freshMan {
+    h2 {
+      margin-top: 10px;
+      color: #9697ff;
+    }
+  }
+
+  .deathMan {
+    h2 {
+      margin-top: 10px;
+      color: #3c3c3c;
+    }
   }
 `;
