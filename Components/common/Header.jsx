@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export default function () {
   return (
     <Conta>
-      <img src="/img/MainPage/logo.png" alt="" />
+      <img src="/img/HeaderLogo.png" alt="" />
       <ContentList>
         <p>Introduction</p>
         <p>Information</p>
@@ -23,17 +23,17 @@ const Conta = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #7988f4;
+  background: #abaebf;
   opacity: 0.9;
   img {
     width: 130px;
     height: 40px;
-    margin-left: 25px;
+    margin-left: 170px;
   }
 `;
 
 const ContentList = styled.nav`
-  margin-right: 25px;
+  margin-right: 170px;
   gap: 60px;
   display: flex;
   align-items: center;
