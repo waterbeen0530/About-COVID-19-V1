@@ -31,10 +31,18 @@ export default function () {
 
   const items = covidData.slice(1).map((arr) => (
     <InfoList>
-      <p>{arr.countryNm}</p>
-      <p>{arr.totalCnt}</p>
-      <p>{arr.isolCnt}</p>
-      <p id="lastItem">{arr.deathCnt}</p>
+      <p>
+        <InfoItem id="firstItem">{arr.countryNm}</InfoItem>
+      </p>
+      <p>
+        <InfoItem id="secondItem">{arr.totalCnt}</InfoItem>
+      </p>
+      <p>
+        <InfoItem id="thirdItem">{arr.isolCnt}</InfoItem>
+      </p>
+      <p>
+        <InfoItem id="lastItem">{arr.deathCnt}</InfoItem>
+      </p>
     </InfoList>
   ));
 
@@ -54,48 +62,68 @@ export default function () {
 }
 
 const Container = styled.div`
-  margin-top: 20px;
-
-  #lastItem {
-    border-right: none;
-  }
-
+  margin: 30px;
+  border-radius: 10px;
+  background: #fff;
   p {
-    border-radius: 7px;
-    background: #fff;
+    width: 200px;
+    margin: 15px 0;
+    border-right: 1px solid #9d9d9d;
+  }
+  #lastItem {
+    border: none;
   }
 `;
 
-const Title = styled.div`
-  width: 100%;
-`;
+const Title = styled.div``;
 
 const Wrapper = styled.div`
-  width: 100%;
-  height: 70px;
-  gap: 30px;
-  border-bottom: 1px solid #818181;
-  display: table;
-  table-layout: fixed;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   p {
-    color: #818181;
-    display: table-cell;
-    line-height: 70px;
+    width: 200px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: #9d9d9d;
   }
 `;
 
 const Content = styled.div``;
 
-const InfoList = styled.div`
-  width: 100%;
-  height: 50px;
-  gap: 30px;
-  display: table;
-  table-layout: fixed;
-  text-align: center;
-  p {
-    display: table-cell;
-    line-height: 50px;
+const InfoItem = styled.div`
+  width: 130px;
+  height: 37px;
+  margin: 0 35px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+
+  &:hover {
+    background: #f5f5f5;
+    cursor: pointer;
   }
+
+  &#secondItem {
+    color: #ff6584;
+  }
+
+  & > #thirdItem {
+    color: #9697ff;
+  }
+  #lastItem {
+    border: none;
+  }
+`;
+
+const InfoList = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

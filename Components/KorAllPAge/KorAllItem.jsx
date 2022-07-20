@@ -38,17 +38,20 @@ const Container = styled.div`
 
 const Content = styled.div`
   width: 1000px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 `;
 
 const ItemList = styled.div`
   width: 100%;
   gap: 20px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center;
   border-radius: 25px;
   div {
-    width: 330px;
+    width: 250px;
     height: 110px;
     padding: 15px 0 0;
     display: flex;
